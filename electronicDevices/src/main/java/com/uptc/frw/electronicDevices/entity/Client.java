@@ -22,7 +22,8 @@ public class Client {
     private String phone;
     @Column(name="CORREO")
     private String mail;
-
+    @OneToMany(mappedBy = "client")
+    private List<Repair> reparations;
 
     public Client() {
     }
@@ -92,7 +93,13 @@ public class Client {
         this.mail = mail;
     }
 
+    public List<Repair> getReparations() {
+        return reparations;
+    }
 
+    public void setReparations(List<Repair> reparations) {
+        this.reparations = reparations;
+    }
 
     @Override
     public String toString() {
