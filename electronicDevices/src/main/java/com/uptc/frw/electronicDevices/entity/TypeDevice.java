@@ -24,7 +24,7 @@ public class TypeDevice {
     @ManyToOne
     @JoinColumn(name = "ID_SUPER_TIPO")
     private TypeDevice typeDevice;
-    @OneToMany(mappedBy = "device")
+    @OneToMany(mappedBy = "devices")
     private List<Device> devices;
 
     public TypeDevice() {

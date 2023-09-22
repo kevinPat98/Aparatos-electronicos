@@ -47,7 +47,7 @@ type TypeDevice {
     superTypeDevice: Int,
     typeDevice: TypeDevice,
     typeDeviceList: [TypeDevice]
-    DeviceList: [Device]
+    devices: [Device]
 
 }
 
@@ -63,7 +63,7 @@ type Device {
     code: Int,
     name: String,
     decription: String,
-    typeDevice : TypeDevice
+    devices : TypeDevice
     reparations : [Repair]
 
 }

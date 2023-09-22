@@ -24,7 +24,9 @@ public class Device {
     private List<Repair> reparations;
     @ManyToOne
     @JoinColumn(name = "ID_TIPO")
-    private TypeDevice device;
+    private TypeDevice devices;
+
+
     @OneToMany(mappedBy = "device")
     private List<DeviceComponent> deviceComponentList;
 
@@ -94,12 +96,12 @@ public class Device {
         this.reparations = reparations;
     }
 
-    public TypeDevice getDevice() {
-        return device;
+    public TypeDevice getDevices() {
+        return devices;
     }
 
-    public void setDevice(TypeDevice device) {
-        this.device = device;
+    public void setDevices(TypeDevice device) {
+        this.devices = device;
     }
 
     public List<DeviceComponent> getDeviceComponentList() {

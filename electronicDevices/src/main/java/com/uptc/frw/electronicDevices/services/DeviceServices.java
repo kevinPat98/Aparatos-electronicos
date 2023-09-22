@@ -39,7 +39,7 @@ public class DeviceServices {
         device.setCode(deviceRequest.getCode());
         device.setName(deviceRequest.getName());
         device.setDecription(deviceRequest.getDecription());
-        device.setDevice(typeDevice1);
+        device.setDevices(typeDevice1);
         return deviceRepository.save(device);
     }
 
