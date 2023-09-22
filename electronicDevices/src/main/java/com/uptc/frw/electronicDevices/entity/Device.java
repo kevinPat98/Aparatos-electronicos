@@ -28,6 +28,24 @@ public class Device {
     @OneToMany(mappedBy = "device")
     private List<DeviceComponent> deviceComponentList;
 
+    public Device() {
+    }
+
+    public Device(Long id, Long typeId, Long code, String name, String decription) {
+        this.id = id;
+        this.typeId = typeId;
+        this.code = code;
+        this.name = name;
+        this.decription = decription;
+    }
+
+    public Device(Long typeId, Long code, String name, String decription) {
+        this.typeId = typeId;
+        this.code = code;
+        this.name = name;
+        this.decription = decription;
+    }
+
     public Long getId() {
         return id;
     }

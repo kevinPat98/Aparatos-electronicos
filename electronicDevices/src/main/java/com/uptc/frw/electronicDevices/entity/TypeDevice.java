@@ -27,6 +27,21 @@ public class TypeDevice {
     @OneToMany(mappedBy = "device")
     private List<Device> devices;
 
+    public TypeDevice() {
+    }
+
+    public TypeDevice(Long id, String name, Long superTypeDevice, String characteristic) {
+        this.id = id;
+        this.name = name;
+        this.superTypeDevice = superTypeDevice;
+        this.characteristic = characteristic;
+    }
+
+    public TypeDevice(String name, Long superTypeDevice, String characteristic) {
+        this.name = name;
+        this.superTypeDevice = superTypeDevice;
+        this.characteristic = characteristic;
+    }
 
     public Long getId() {
         return id;
