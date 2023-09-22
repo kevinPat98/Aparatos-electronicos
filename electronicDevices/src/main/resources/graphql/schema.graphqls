@@ -1,0 +1,146 @@
+type Mutation{
+    saveTypeDevice(superTypeId : Int, typeDeviceRequest: TypeDeviceRequest): TypeDevice,
+    updateTypeDevice(id: Int ,typeDeviceRequest:TypeDeviceRequest):TypeDevice,
+    deleteTypeDevice(id : Int) : Int,
+    saveDevice(typeId : Int, deviceRequest: DeviceRequest): Device,
+    updateDevice(id : Int, deviceRequest: DeviceRequest): Device,
+    deleteDevice(id : Int) : Int,
+    saveClient(clientRequest:ClientRequest): Client,
+    updateClient(id: Int ,clientRequest:ClientRequest):Client,
+    deleteClient(id : Int) : Int,
+    saveReparation(customerId : Int,deviceId: Int,repairRequest:RepairRequest): Repair,
+    updateReparation(id:Int,repairRequest:RepairRequest):Repair,
+    deleteReparation(id : Int) : Int,
+    saveMaker(makerRequest:MakerRequest): Maker,
+    updateMaker(id:Int,makerRequest:MakerRequest):Maker,
+    deleteMaker(id : Int) : Int,
+    saveComponent(makerId : Int, componentRequest:ComponentRequest): Component,
+    updateComponent(id : Int, componentRequest:ComponentRequest): Component,
+    deleteComponent(id : Int) : Int,
+    saveDeviceComponent(componentId:Int, deviceId: Int, units: Int): DeviceComponent,
+    updateDeviceComponent(id:Int, componentRequest:ComponentRequest): DeviceComponent,
+    deleteDeviceComponent(id : Int) : Int
+}
+
+
+type Query{
+    getTypeDeviceServices : [TypeDevice],
+    getTypeDeviceService(id : Int) : TypeDevice,
+    getDevices: [Device],
+    getDeviceById(id : Int) : Device,
+    getClients: [Client],
+    getClient(id : Int) : Client,
+    getReparations: [Repair],
+    getReparationId(id : Int) : Repair,
+    getMakers: [Maker],
+    getMakerById(id : Int) : Maker,
+    getComponents: [Component],
+    getComponent(id : Int) : Component,
+    getDeviceComponents:[DeviceComponent],
+    getDeviceComponent(id : Int) : DeviceComponent,
+}
+
+type TypeDevice {
+    id: Int,
+    name: String,
+    characteristic: String,
+    superTypeDevice: Int,
+    typeDevice: TypeDevice,
+    typeDeviceList: [TypeDevice]
+    DeviceList: [Device]
+
+}
+
+input TypeDeviceRequest {
+    id: Int,
+    name: String,
+    characteristic: String,
+}
+
+
+type Device {
+    id: Int,
+    code: Int,
+    name: String,
+    decription: String,
+    typeDevice : TypeDevice
+    reparations : [Repair]
+
+}
+
+input DeviceRequest {
+    code: Int,
+    name: String,
+    decription: String,
+}
+
+type Client{
+    id: Int,
+    document : String,
+    name : String,
+    address : String,
+    phone : Int,
+    mail: String,
+    reparations : [Repair]
+}
+
+input ClientRequest{
+    document : String,
+    name : String,
+    address : String,
+    phone : Int,
+    mail: String,
+}
+
+
+type Repair{
+    id : Int,
+    refence : String,
+    description: String,
+    date: String,
+    client : Client,
+    device: Device
+}
+
+
+
+input RepairRequest{
+    refence : String,
+    description: String,
+}
+
+type Maker{
+    id : Int,
+    rif : Int,
+    name: String,
+    address: String,
+    componentList: [Component]
+}
+
+
+
+input MakerRequest{
+    rif : Int,
+    name: String,
+    address: String,
+}
+
+type Component{
+    id : Int,
+    name : String,
+    specifications: String,
+    maker: Maker
+}
+
+
+input ComponentRequest{
+    name : String,
+    specifications: String,
+}
+
+type DeviceComponent{
+    component : Component,
+    device: Device
+    units : Int
+}
+
