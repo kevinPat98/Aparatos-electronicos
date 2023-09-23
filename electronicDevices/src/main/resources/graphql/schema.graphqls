@@ -63,8 +63,9 @@ type Device {
     code: Int,
     name: String,
     decription: String,
-    devices : TypeDevice
-    reparations : [Repair]
+    devices : TypeDevice,
+    reparations : [Repair],
+    deviceComponentList: [DeviceComponent]
 
 }
 
@@ -129,7 +130,7 @@ type Component{
     id : Int,
     name : String,
     specifications: String,
-    maker: Maker
+    makers: Maker
 }
 
 
